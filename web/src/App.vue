@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import $ from 'jquery';
 import { ref } from 'vue';
 
 export default {
@@ -15,6 +16,16 @@ export default {
   setup: () => {
     let bot_name = ref('');
     let bot_rating = ref('');
+
+    $.ajax({
+      url: 'http://127.0.0.1:3000/pk/getbotinfo/',
+      type: "get",
+      success: rasp => {
+        bot_name.value = rasp.name;
+        bot_rating.value = rasp.rating;
+      }
+    });
+
     return {
       bot_name,
       bot_rating,
@@ -23,4 +34,10 @@ export default {
 }
 </script>
 
-<style></style>
+
+<style>
+body {
+  background-image: url('@/assets/background.png');
+  background-size: cover;
+}
+</style>
