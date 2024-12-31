@@ -1,9 +1,16 @@
 <template>
-    <div>PK</div>
+    <PlayGround />
+    对战
 </template>
 
 <script>
+import PlayGround from '../../components/PlayGround.vue';
 
+export default {
+    components: {
+        PlayGround,
+    },
+}
 </script>
 
 
